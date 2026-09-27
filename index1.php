@@ -1,14 +1,13 @@
 <?php
 include 'koneksi.php';
 
-// Variable awal untuk form
+
 $id = "";
 $nis = "";
 $nama = "";
 $jurusan = "";
 $is_edit = false;
 
-// 1. PROSES TAMBAH DATA (INSERT)
 if (isset($_POST['simpan'])) {
     $nis     = $_POST['nis'];
     $nama    = $_POST['nama'];
@@ -18,14 +17,14 @@ if (isset($_POST['simpan'])) {
     header("Location: index.php");
 }
 
-// 2. PROSES HAPUS DATA (DELETE)
+
 if (isset($_GET['hapus'])) {
     $id = $_GET['hapus'];
     mysqli_query($koneksi, "DELETE FROM siswa WHERE id='$id'");
     header("Location: index.php");
 }
 
-// 3. PERSIAPAN EDIT DATA (Ambil data ke form)
+
 if (isset($_GET['edit'])) {
     $id = $_GET['edit'];
     $is_edit = true;
@@ -37,7 +36,6 @@ if (isset($_GET['edit'])) {
     $jurusan = $data['jurusan'];
 }
 
-// 4. PROSES UPDATE DATA
 if (isset($_POST['update'])) {
     $id      = $_POST['id'];
     $nis     = $_POST['nis'];
