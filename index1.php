@@ -1,5 +1,5 @@
 <?php
-include 'connect.php';
+include 'koneksi.php';
 
 // Variable awal untuk form
 $id = "";
